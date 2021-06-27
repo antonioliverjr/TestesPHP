@@ -1,7 +1,10 @@
+
+
 .ponteiro{
     background-color: transparent;
     border: transparent;
     cursor: pointer;
+    text-align: center;
 }
 
 .logo{

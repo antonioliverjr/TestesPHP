@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,30 +10,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/js/show_hide.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Calculos</title>
 </head>
 <body>
     <main>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: black;">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container-fluid">
-                <a href="" class="navbar-brand nav-link mr-5">
+                <a href="index.html" class="navbar-brand nav-link mr-5">
                 <img src="./img/calculadora.png" class="logo">
                 </a>
-                <div class="collapse navbar-collapse">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+                    <span class="navbar-toggler-icon m-auto"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
                     <ul class="navbar-nav">
-                        <li class="nav-item mr-3"><button class="nav-link nav-link:hover ponteiro" onclick="valoresCalc()">Calcular Valores</button></li>
+                        <li class="nav-item mr-3"><button class="nav-link nav-link:hover ponteiro" onclick="valoresCalc()">Calculadora</button></li>
                         <li class="nav-item mr-3"><button class="nav-link nav-link:hover ponteiro" onclick="valoresTabuada()">Tabuada</button></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </main>
-    <div class="container mt-5">
+    <div class="container mt-5 digitaValor">
         <form action="calculadora.php" method="post" id="calculadora">
             <div class="calc-js" id="valoresCalc">
-            <table class="table">
+            <table class="table table-dark">
                 <tbody>
                     <tr>
                         <td><label for="valorA">Digite o 1º valor: </label></td>
@@ -43,7 +51,7 @@
             </table>
             </div>
             <div class="tab-js" id="valorTab">
-                <table class="table">
+                <table class="table table-dark">
                     <tbody>
                         <tr>
                             <td><label for="valorC">Digite um valor: </label></td>
@@ -53,11 +61,11 @@
                 </table>
                 </div>
             <div class="">
-                <table>
+                <table class="table table-dark">
                 <tbody>
                     <tr>
-                        <td><label for="operador">Qual tipo de conta deseja?</label></td>
-                        <td>
+                        <td class="w-40"><label for="operador">Qual Operação?</label></td>
+                        <td class="w-30">
                             <select name="operador" id="operador">
                                 <option value="soma">+</option>
                                 <option value="subtrair">-</option>
@@ -67,13 +75,16 @@
                                 <option value="potencia">Potência</option>
                             </select>
                         </td>
+                        <td class="w-30">
+                            <div class="text-center">
+                                <input class="btn btn-danger" type="submit" value="Calcular">
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
                 </table>
             </div>
-            <div class="text-center">
-                <input type="submit" value="Calcular">
-            </div>
+            
         </form>
     </div>
 </body>
