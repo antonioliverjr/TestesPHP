@@ -1,0 +1,10 @@
+.ponteiro{
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+}
